@@ -1,0 +1,39 @@
+<% include ./partials/header %>
+
+<div class="row mt-5">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <table class="table table-hover">
+      <thead>
+          <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Social Points Deducted</th>
+              <th>Violation</th>
+              <th>Date</th>
+          </tr>
+      </thead>
+      <tbody>
+
+        <% var a = 1%>
+        <% students.forEach(student => { %>
+          <tr>
+              <% var c = student.date.getMonth() + 1 %>
+              <%var b = `${c}-${student.date.getDate()}-${student.date.getFullYear()}  ${student.date.getHours()}:${student.date.getMinutes()}:${student.date.getSeconds()}`%>
+              <td><%= a++ %></td>
+              <td><%= student.name %></td>
+              <td><%= student.scl_pts %></td>
+              <td><%= student.violation %></td>
+              <td><%= b %></td>
+          </tr>
+        <% }) %>
+
+      </tbody>
+    </table>
+  </div>
+  <div class="col-1"></div>
+</div>
+  
+
+
+<% include ./partials/footer %>
